@@ -11,4 +11,5 @@ public class TestController {
 	public String test() {
 		return "This is just a sample text returned from controller";
 	}
+	/* test*/
 }
