@@ -32,6 +32,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <finalName>testimage</finalName>
     </build>
 
 </project>
