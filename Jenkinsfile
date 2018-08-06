@@ -1,4 +1,9 @@
 pipeline {
+	environment {
+    	registry = “pavan93/testimage”
+    	registryCredential = ‘dockerhub’
+    	dockerImage = ''
+    }
     agent {
         docker {
             image 'maven:3-alpine' 
@@ -6,10 +11,26 @@ pipeline {
         }
     }
     stages {
-        stage('Build') { 
+        stage('Maven install') { 
             steps {
                 sh 'mvn -B -DskipTests clean package' 
             }
+        }
+        stage('Build Docker Image'){
+        	steps{
+        		script{
+        			dockerImage = docker.build registry + ":latest"
+        		}
+        	}
+        }
+        stage('Push docker image to dockerHub'){
+        	steps{
+        		script{
+        			docker.withRegistry('', registryCredential){
+        				dockerImage.push 
+        			}
+        		}
+        	}
         }
     }
 }
