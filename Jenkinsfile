@@ -1,7 +1,7 @@
 pipeline {
 	environment {
-    	registry = 'pavan93/testimage'
-    	registryCredential = ‘dockerhub’
+    	//registry = 'pavan93/testimage'
+    	//registryCredential = ‘dockerhub’
     	dockerImage = ''
     }
     agent {
@@ -26,7 +26,6 @@ pipeline {
         stage('Push docker image to dockerHub'){
         	steps{
         		script{
-        			docker.withRegistry('', registryCredential){
         				dockerImage.push 
         			}
         		}
