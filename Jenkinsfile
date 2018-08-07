@@ -19,14 +19,14 @@ pipeline {
         stage('Build Docker Image'){
         	steps{
         		script{
-        			dockerImage = docker.build 'pavan93/testimage:latest'
+        			dockerImage = docker.build ("pavan93/testimage:latest")
         		}
         	}
         }
         stage('Push docker image to dockerHub'){
         	steps{
         		script{
-        				dockerImage.push 
+        				dockerImage.push("latest")
         			}
         		}
         	}
