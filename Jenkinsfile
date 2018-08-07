@@ -22,7 +22,6 @@ pipeline {
         			dockerImage = docker.build registry + ":latest"
         		}
         	}
-        }
         stage('Push docker image to dockerHub'){
         	steps{
         		script{
