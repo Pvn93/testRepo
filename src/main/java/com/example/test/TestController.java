@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestController {
 	public Log log = LogFactory.getLog(TestController.class);
-	//test comment
+	//test comment1
 	@RequestMapping("/sample")
 	public String test() {
 		log.info("Inside the test controller!!!!!");
